@@ -1,0 +1,55 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+<form [formGroup]="signupform" (ngSubmit)="onsubmit()">
+<div formGroupName="userdata">
+    <div class="form-group">
+<label class="col-form-label">username</label>
+<input type="text" class="form-control" formControlName="username">
+<span class="text-danger" *ngIf="signupform.get('userdata.username').invalid">*kodaka fill chey</span>
+
+</div>
+
+
+    <div class="form-group">
+<label class="col-form-label">Email</label>
+<input type="text" class="form-control" formControlName="email">
+<span class="text-danger" *ngIf="!signupform.get('userdata.email').valid">*idi kuda kavali le kodkaa</span>
+
+</div>
+</div>
+
+<div *ngFor="let gender of genders">
+<label>
+<input type="radio" name="gender" [value]="gender" formControlName="gender">{{gender}} 
+    </label>
+</div>
+
+
+<div formArrayName='hobbies'>
+<div>
+<button type="button" (click)="onaddhobby()" class="btn  btn-sm btn-primary">Add hobby</button>
+    </div>
+
+    
+<div class="form-group" *ngFor="let hobby of signupform.get('hobbies').controls;let i=index">
+    <label>note:
+<input type="text" class="form-control" [formControlName]='i'>
+</label>
+</div>
+ 
+    
+</div>
+
+<div>
+<button type="submit" class="btn btn-primary">ADD</button>
+    </div>
+</form>
+
+
+</div>
+
+
+
+</div>
+</div>

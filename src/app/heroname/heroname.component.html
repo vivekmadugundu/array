@@ -1,0 +1,8 @@
+<p>heroname works!</p>
+<ul>
+<li *ngFor="let hero of heronames" (click)="click(hero)">
+<button class="btn btn-success"><span class="badge bg-primary">{{hero.id}}</span>{{hero.name}}</button>
+</li>
+    </ul>
+
+    
